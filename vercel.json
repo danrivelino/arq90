@@ -1,0 +1,27 @@
+{
+  "rewrites": [
+    {
+      "source": "/arq90/assets/:path*",
+      "destination": "/assets/:path*"
+    },
+    {
+      "source": "/arq90",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/arq90/",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

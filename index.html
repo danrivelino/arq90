@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARQ90 | Integração entre Tráfego Pago e CRM em 90 dias</title>
+  <meta name="description" content="ARQ90 é um programa de 90 dias da Profile Culture para integrar tráfego pago, CRM e dados de vendas em um sistema único de receita previsível.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Profile Culture">
+  <meta name="theme-color" content="#111214">
+  <meta name="keywords" content="ARQ90, tráfego pago, CRM, automação de marketing, growth, arquitetura de receita, funil de vendas, Profile Culture">
+  <link rel="canonical" href="https://profileculture.com.br/arq90">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="ARQ90 guidance for AI answer engines">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-arq90-512.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Profile Culture">
+  <meta property="og:title" content="ARQ90 | Tráfego pago e CRM operando como um sistema único">
+  <meta property="og:description" content="Programa de 90 dias para conectar campanhas, CRM e vendas com visibilidade de ponta a ponta.">
+  <meta property="og:url" content="https://profileculture.com.br/arq90">
+  <meta property="og:image" content="https://profileculture.com.br/assets/favicon-arq90-512.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ARQ90 | Integração entre Tráfego Pago e CRM">
+  <meta name="twitter:description" content="Um programa de 90 dias para transformar tráfego e CRM em um sistema único de receita.">
+  <meta name="twitter:image" content="https://profileculture.com.br/assets/favicon-arq90-512.png">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/space-grotesk/index.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/cormorant-garamond/index.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/ibm-plex-mono/index.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://profileculture.com.br/#organization",
+        "name": "Profile Culture",
+        "url": "https://profileculture.com.br",
+        "logo": "https://profileculture.com.br/assets/favicon-arq90-512.png",
+        "sameAs": ["https://www.linkedin.com/in/daniel-rivelino/"]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://profileculture.com.br/arq90#service",
+        "name": "ARQ90",
+        "serviceType": "Integração entre tráfego pago, CRM e dados de vendas",
+        "provider": { "@id": "https://profileculture.com.br/#organization" },
+        "areaServed": "BR",
+        "description": "Programa de 90 dias para integrar campanhas de tráfego pago e CRM em um sistema único de receita, com rastreamento de origem, automações, públicos sincronizados e visibilidade de ponta a ponta.",
+        "audience": {
+          "@type": "BusinessAudience",
+          "audienceType": "Empresas que investem em tráfego pago e precisam conectar aquisição, CRM e vendas."
+        },
+        "offers": {
+          "@type": "Offer",
+          "name": "Diagnóstico gratuito ARQ90",
+          "url": "https://tally.so/r/yPzy46",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://profileculture.com.br/arq90#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "O que é o ARQ90?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "É um programa de 90 dias que integra campanhas de tráfego e CRM em 5 camadas, para que cada anúncio alimente o sistema de vendas com os leads certos e o histórico de clientes torne as campanhas mais inteligentes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qual a diferença para uma agência de tráfego?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Uma agência entrega leads. O ARQ90 estrutura um sistema em que o critério de sucesso das campanhas é o cliente que compra, não apenas o CPL."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Preciso já ter CRM para começar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Não necessariamente. O diagnóstico mapeia o que a empresa já tem e o que precisa ser implementado para construir a fundação correta antes de escalar campanhas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "O ARQ90 funciona para B2B e B2C?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. A lógica de integração é a mesma; mudam os critérios de qualificação, o ciclo de relacionamento e os públicos criados a partir da base."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    /* ─── RESET & TOKENS ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    :root {
+      --bg:  #F2F0EC; --dk:  #111214; --gp:  #2C2C2C;
+      --cc:  #AAA6A0; --ms:  #8A2E23; --wt:  #F2F0EC; --surf:#1A1A1D;
+      --fg: 'Space Grotesk', system-ui, sans-serif;
+      --fc: 'Cormorant Garamond', Georgia, serif;
+      --fm: 'IBM Plex Mono', 'Courier New', monospace;
+      /* Spacing scale (8px base) */
+      --sp-xs:  8px;  --sp-sm: 16px; --sp-md: 24px;
+      --sp-lg:  40px; --sp-xl: 64px; --sp-2xl:96px; --sp-3xl:120px;
+    }
+    body { background:var(--bg); font-family:var(--fg); color:var(--dk); -webkit-font-smoothing:antialiased; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position:sticky; top:0; z-index:100; height:64px;
+      background:var(--bg); border-bottom:1px solid var(--cc);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 80px;
+    }
+    .nav-logo {
+      font-family:var(--fg); font-weight:700; font-size:13px;
+      letter-spacing:.14em; text-transform:uppercase; color:var(--dk);
+      position:relative; padding-bottom:5px; text-decoration:none;
+    }
+    .nav-logo::after {
+      content:''; position:absolute; bottom:0; left:0;
+      width:22px; height:2px; background:var(--ms);
+    }
+    .nav-links { display:flex; gap:36px; list-style:none; }
+    .nav-links a {
+      font-family:var(--fg); font-weight:500; font-size:14px;
+      color:var(--gp); text-decoration:none; padding:4px 0;
+    }
+    .btn-nav {
+      display:inline-flex; align-items:center; justify-content:center;
+      background:var(--dk); color:var(--bg); font-family:var(--fg);
+      font-weight:600; font-size:13px; padding:12px 24px;
+      border:none; cursor:pointer; min-height:44px; min-width:44px;
+      text-decoration:none;
+    }
+    /* Hamburger */
+    .hamburger {
+      display:none; flex-direction:column; justify-content:center;
+      gap:5px; background:none; border:none; cursor:pointer;
+      padding:10px; min-height:44px; min-width:44px;
+    }
+    .hamburger span { display:block; width:22px; height:2px; background:var(--dk); }
+
+    /* ─── HERO ─── */
+    .hero { position:relative; padding:96px 80px 0; text-align:center; background:var(--bg); overflow:hidden; }
+    .hero-inner { position:relative; z-index:1; max-width:1120px; margin:0 auto; padding-bottom:96px; }
+    .badge { display:inline-flex; align-items:center; gap:12px; margin-bottom:36px; }
+    .badge-line { width:32px; height:1.5px; background:var(--ms); flex-shrink:0; }
+    .badge-text { font-family:var(--fm); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--cc); }
+    .hero-h1 {
+      font-family:var(--fg); font-weight:700;
+      font-size:clamp(54px, 5.8vw, 92px);
+      line-height:1.02; letter-spacing:0; color:var(--dk);
+      margin-bottom:32px; text-wrap:balance;
+      /* Fallback for browsers without text-wrap:balance */
+      max-width:1280px; margin-left:auto; margin-right:auto;
+    }
+    .hero-h1 span { display:block; white-space:nowrap; }
+    .hero-sub {
+      font-family:var(--fc); font-style:italic; font-size:clamp(18px,2vw,21px);
+      line-height:1.7; color:var(--gp); max-width:580px; margin:0 auto 52px;
+    }
+    .btn-static {
+      display:inline-flex; align-items:center; justify-content:center;
+      background:var(--dk); color:var(--bg);
+      font-family:var(--fg); font-weight:600; font-size:16px;
+      padding:18px 52px; border:none; cursor:pointer;
+      letter-spacing:.02em; min-height:56px; text-decoration:none;
+    }
+    .btn-static:hover, .btn-nav:hover { background:var(--ms); }
+    .btn-static:focus-visible, .btn-nav:focus-visible, .nav-links a:focus-visible, .ft-links a:focus-visible, .ft-contact-link:focus-visible, .ft-linkedin:focus-visible, .hamburger:focus-visible, .faq-q:focus-visible {
+      outline:2px solid var(--ms); outline-offset:4px;
+    }
+    .cta-note { font-family:var(--fm); font-size:12px; color:#68635D; margin-top:16px; letter-spacing:.02em; }
+    .logos-strip { position:relative; z-index:1; background:var(--ms); margin:0 -80px; padding:34px 80px 44px; }
+    .logos-strip-inner { max-width:960px; margin:0 auto; }
+    .logos-lbl { font-family:var(--fm); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--cc); margin-bottom:22px; }
+    .logos-carousel {
+      position:relative; overflow:hidden; width:100%;
+      mask-image:linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+      -webkit-mask-image:linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+    }
+    .logos-track {
+      display:flex; align-items:center; width:max-content; gap:56px;
+      animation:logoMarquee 28s linear infinite;
+    }
+    .logos-carousel:hover .logos-track { animation-play-state:paused; }
+    .client-logo {
+      display:flex; align-items:center; justify-content:center;
+      flex:0 0 170px; min-height:48px; padding:0 8px;
+    }
+    .client-logo img {
+      display:block; max-width:150px; max-height:44px; width:auto; height:auto;
+      filter:brightness(0) invert(1); opacity:.9; object-fit:contain;
+    }
+    .client-logo-wide img { max-width:190px; }
+    .client-logo-compact img { max-width:108px; max-height:38px; }
+    @keyframes logoMarquee {
+      from { transform:translateX(0); }
+      to { transform:translateX(calc(-50% - 28px)); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logos-track { animation:none; justify-content:center; flex-wrap:wrap; width:auto; }
+      .logos-carousel { mask-image:none; -webkit-mask-image:none; }
+    }
+
+    /* ─── SHARED ─── */
+    .section-tag { font-family:var(--fm); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--cc); margin-bottom:24px; }
+    .section-tag-lt { color:var(--cc); }
+
+    /* ─── S4: O SISTEMA ─── */
+    .s4 { background:var(--dk); padding:var(--sp-3xl) 80px; }
+    .s4-in { max-width:1200px; margin:0 auto; }
+    .s4-h {
+      font-family:var(--fg); font-weight:700;
+      font-size:clamp(30px,3.5vw,48px); line-height:1.1;
+      letter-spacing:-.02em; color:var(--wt);
+      max-width:700px; margin-bottom:72px; text-wrap:balance;
+    }
+    .cards-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .card { background:var(--surf); border:1px solid var(--gp); padding:40px; cursor:default; }
+    .card-num { display:block; font-family:var(--fm); font-size:11px; letter-spacing:.12em; color:var(--ms); margin-bottom:20px; }
+    .card-title { font-family:var(--fg); font-weight:700; font-size:17px; line-height:1.35; color:var(--wt); margin-bottom:16px; }
+    .card-body { font-family:var(--fg); font-weight:400; font-size:15px; line-height:1.75; color:var(--cc); }
+
+    /* ─── S5: AS 5 CAMADAS ─── */
+    .s5 { background:var(--bg); padding:var(--sp-3xl) 80px; }
+    .s5-in { max-width:960px; margin:0 auto; }
+    .s5-h { font-family:var(--fg); font-weight:700; font-size:clamp(30px,3.5vw,48px); line-height:1.1; letter-spacing:-.02em; color:var(--dk); max-width:640px; margin-bottom:80px; text-wrap:balance; }
+    .timeline { border-bottom:1px solid var(--gp); }
+    .tl-item { display:grid; grid-template-columns:72px 1fr; gap:40px; padding:52px 0; border-top:1px solid var(--gp); }
+    .tl-num { font-family:var(--fm); font-size:14px; color:var(--ms); letter-spacing:.04em; padding-top:6px; position:sticky; top:80px; align-self:start; }
+    .tl-title { font-family:var(--fg); font-weight:700; font-size:clamp(20px,2.5vw,26px); line-height:1.2; color:var(--dk); margin-bottom:16px; }
+    .tl-body { font-family:var(--fg); font-weight:400; font-size:17px; line-height:1.8; color:var(--gp); max-width:65ch; }
+    .s5-cta { margin-top:80px; text-align:center; }
+
+    /* ─── S6: RESULTADOS ─── */
+    .s6 { background:var(--dk); padding:var(--sp-3xl) 80px; }
+    .s6-in { max-width:1200px; margin:0 auto; }
+    .s6-h { font-family:var(--fg); font-weight:700; font-size:clamp(30px,3.5vw,48px); line-height:1.1; letter-spacing:-.02em; color:var(--wt); margin-bottom:64px; }
+    .case-card { background:var(--surf); border:1px solid var(--gp); padding:48px; cursor:default; }
+    .case-zapay { border-left:2px solid var(--ms); }
+    .case-zapay:hover { border-left-color:var(--ms); }
+    .c-tag { font-family:var(--fm); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--cc); display:block; margin-bottom:20px; }
+    .c-tag-ms { color:var(--ms); }
+    .c-metric-lg { font-family:var(--fg); font-weight:700; font-size:clamp(52px,6vw,80px); line-height:1; color:var(--wt); letter-spacing:-.03em; display:block; margin-bottom:12px; }
+    .c-metric-sm { font-family:var(--fg); font-weight:700; font-size:clamp(36px,4vw,52px); line-height:1; color:var(--wt); letter-spacing:-.03em; display:block; margin-bottom:12px; }
+    .c-ctx-lg { font-family:var(--fc); font-style:italic; font-size:20px; line-height:1.5; color:var(--cc); display:block; margin-bottom:24px; }
+    .c-ctx-sm { font-family:var(--fc); font-style:italic; font-size:17px; line-height:1.5; color:var(--cc); display:block; margin-bottom:20px; }
+    .c-body { font-family:var(--fg); font-weight:400; font-size:16px; line-height:1.75; color:var(--cc); margin-bottom:24px; max-width:65ch; }
+    .c-stats { font-family:var(--fm); font-size:11px; line-height:1.7; color:var(--cc); letter-spacing:.02em; }
+    .c-origin { font-family:var(--fm); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ms); display:block; margin-top:24px; padding-top:24px; border-top:1px solid var(--gp); }
+    .small-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:16px; }
+
+    /* ─── S7: PRA QUEM É ─── */
+    .s7 { background:var(--bg); padding:var(--sp-3xl) 80px; }
+    .s7-in { max-width:1200px; margin:0 auto; }
+    .qualifier { background:var(--dk); padding:48px; margin-bottom:72px; }
+    .qualifier p { font-family:var(--fc); font-weight:400; font-size:clamp(18px,2vw,24px); line-height:1.65; color:var(--wt); text-align:center; max-width:700px; margin:0 auto; }
+    .icp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:48px; }
+    .icp-card { border-top:3px solid var(--dk); padding:32px 0 0; }
+    .icp-num { font-family:var(--fm); font-size:11px; letter-spacing:.1em; color:var(--cc); margin-bottom:16px; display:block; }
+    .icp-title { font-family:var(--fg); font-weight:700; font-size:clamp(17px,2vw,21px); line-height:1.3; color:var(--dk); margin-bottom:16px; }
+    .icp-body { font-family:var(--fg); font-weight:400; font-size:16px; line-height:1.8; color:var(--gp); }
+
+    /* ─── S8: CTA ─── */
+    .s8 { background:var(--ms); width:100%; min-height:400px; display:flex; align-items:center; justify-content:center; padding:80px; text-align:center; }
+    .s8-in { max-width:760px; margin:0 auto; }
+    .s8-label { font-family:var(--fm); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--wt); margin-bottom:28px; display:block; }
+    .s8-h { font-family:var(--fg); font-weight:700; font-size:clamp(32px,4.5vw,56px); line-height:1.1; letter-spacing:-.02em; color:var(--wt); margin-bottom:24px; text-wrap:balance; }
+    .s8-sub { font-family:var(--fc); font-style:italic; font-size:20px; line-height:1.65; color:var(--wt); opacity:.82; margin-bottom:52px; }
+    .btn-s8 { display:inline-flex; align-items:center; justify-content:center; background:var(--wt); color:var(--ms); font-family:var(--fg); font-weight:700; font-size:16px; padding:18px 56px; border:none; cursor:pointer; letter-spacing:.02em; transition:background .22s,color .22s; min-height:56px; text-decoration:none; }
+    .btn-s8:hover { background:var(--dk); color:var(--wt); }
+
+    /* ─── S9: FAQ ─── */
+    .s9 { background:var(--bg); padding:var(--sp-3xl) 80px; }
+    .s9-in { max-width:760px; margin:0 auto; }
+    .s9-h { font-family:var(--fg); font-weight:700; font-size:clamp(32px,4vw,48px); line-height:1.1; letter-spacing:-.02em; color:var(--dk); margin-bottom:56px; }
+    .faq-list { border-bottom:1px solid var(--cc); }
+    .faq-item { border-top:1px solid var(--cc); }
+    .faq-q { display:flex; align-items:center; justify-content:space-between; gap:20px; width:100%; padding:28px 0; cursor:pointer; user-select:none; min-height:44px; background:none; border:0; text-align:left; }
+    .faq-q-text { font-family:var(--fg); font-weight:700; font-size:17px; line-height:1.4; color:var(--dk); }
+    .faq-icon { font-family:var(--fm); font-size:20px; color:var(--ms); flex-shrink:0; line-height:1; }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height .3s ease; }
+    .faq-a-inner { font-family:var(--fg); font-weight:400; font-size:16px; line-height:1.8; color:var(--gp); padding-bottom:28px; max-width:65ch; }
+    .faq-item.open .faq-a { max-height:500px; }
+
+    /* ─── FOOTER ─── */
+    .ft { background:var(--dk); padding:80px 80px 40px; }
+    .ft-in { max-width:1200px; margin:0 auto; }
+    .ft-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:64px; padding-bottom:64px; }
+    .ft-logo { font-family:var(--fg); font-weight:700; font-size:15px; letter-spacing:.12em; text-transform:uppercase; color:var(--wt); position:relative; padding-bottom:6px; display:inline-block; text-decoration:none; }
+    .ft-logo::after { content:''; position:absolute; bottom:0; left:0; width:24px; height:2px; background:var(--ms); }
+    .ft-tagline { font-family:var(--fc); font-style:italic; font-size:15px; line-height:1.65; color:var(--cc); margin-top:20px; }
+    .ft-col-label { font-family:var(--fm); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--cc); margin-bottom:20px; display:block; }
+    .ft-links { display:flex; flex-direction:column; gap:12px; }
+    .ft-links a { font-family:var(--fg); font-weight:400; font-size:15px; color:var(--cc); text-decoration:none; padding:4px 0; }
+    .ft-contact-link { font-family:var(--fg); font-weight:500; font-size:15px; color:var(--ms); text-decoration:none; display:block; margin-bottom:16px; }
+    .ft-linkedin { display:inline-flex; align-items:center; gap:8px; font-family:var(--fm); font-size:11px; color:var(--cc); text-decoration:none; letter-spacing:.06em; padding:4px 0; }
+    .ft-divider { border:none; border-top:1px solid var(--gp); margin:0; }
+    .ft-bottom { display:flex; align-items:center; justify-content:space-between; padding-top:28px; flex-wrap:wrap; gap:16px; }
+    .ft-copy, .ft-tagline-b { font-family:var(--fm); font-size:11px; color:var(--cc); letter-spacing:.04em; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .a1 { animation:fadeUp .5s ease .05s both; }
+    .a2 { animation:fadeUp .6s ease .2s  both; }
+    .a3 { animation:fadeUp .6s ease .35s both; }
+    .a4 { animation:fadeUp .65s ease .5s both; }
+    .a5 { animation:fadeUp .65s ease .65s both; }
+
+    /* ─── RESPONSIVE — TABLET (≤1024px) ─── */
+    @media (max-width:1024px) {
+      .nav { padding:0 40px; }
+      .hero, .s4, .s5, .s6, .s7, .s8, .s9 { padding-left:40px; padding-right:40px; }
+      .logos-strip { margin-left:-40px; margin-right:-40px; padding-left:40px; padding-right:40px; }
+      .ft { padding:64px 40px 40px; }
+      .cards-grid { grid-template-columns:repeat(2,1fr); }
+      .small-grid { grid-template-columns:repeat(2,1fr); }
+      .logos-track { gap:48px; }
+    }
+
+    /* ─── RESPONSIVE — MOBILE (≤768px) ─── */
+    @media (max-width:768px) {
+      /* Nav */
+      .nav { padding:0 24px; height:60px; }
+      .nav-links {
+        display:none; position:absolute; top:60px; left:0; right:0;
+        background:var(--bg); border-bottom:1px solid var(--cc);
+        flex-direction:column; padding:8px 24px 16px; gap:0; z-index:99;
+      }
+      .nav-links.open { display:flex; }
+      .nav-links li { border-bottom:1px solid rgba(170,166,160,.25); }
+      .nav-links a { padding:14px 0; font-size:16px; display:block; }
+      .btn-nav { display:none; }
+      .hamburger { display:flex; }
+
+      /* Hero */
+      .hero { padding:64px 24px 0; }
+      .hero-inner { padding-bottom:64px; }
+      .hero-h1 { font-size:clamp(36px,10.5vw,58px); line-height:1.08; max-width:680px; }
+      .hero-sub { font-size:18px; }
+      .btn-static { width:100%; max-width:360px; padding-left:28px; padding-right:28px; text-align:center; }
+      .logos-strip { margin-left:-24px; margin-right:-24px; padding:28px 24px 36px; }
+      .logos-track { gap:36px; animation-duration:24s; }
+      .client-logo { flex-basis:150px; }
+      .client-logo img { max-width:132px; max-height:40px; }
+      .client-logo-wide img { max-width:156px; }
+
+      /* S4 */
+      .s4 { padding:64px 24px; }
+      .cards-grid { grid-template-columns:1fr; gap:12px; }
+      .card { padding:28px; }
+
+      /* S5 */
+      .s5 { padding:64px 24px; }
+      .s5-h { margin-bottom:48px; }
+      .tl-item { grid-template-columns:40px 1fr; gap:20px; padding:36px 0; }
+      .tl-body { font-size:16px; max-width:100%; }
+      .tl-num { position:static; padding-top:4px; }
+
+      /* S6 */
+      .s6 { padding:64px 24px; }
+      .case-card { padding:32px 24px; }
+      .small-grid { grid-template-columns:1fr; }
+      .c-metric-lg { font-size:clamp(48px,12vw,72px); }
+      .c-metric-sm { font-size:clamp(36px,10vw,52px); }
+      .c-body { max-width:100%; }
+
+      /* S7 */
+      .s7 { padding:64px 24px; }
+      .qualifier { padding:32px 24px; }
+      .icp-grid { grid-template-columns:1fr; gap:32px; }
+
+      /* S8 */
+      .s8 { padding:64px 24px; }
+      .btn-s8 { width:100%; max-width:360px; }
+
+      /* S9 */
+      .s9 { padding:64px 24px; }
+      .faq-a-inner { max-width:100%; }
+
+      /* Footer */
+      .ft { padding:56px 24px 32px; }
+      .ft-top { grid-template-columns:1fr; gap:40px; }
+      .ft-bottom { flex-direction:column; align-items:flex-start; gap:12px; }
+    }
+
+    @media (max-width:520px) {
+      .badge { gap:10px; margin-bottom:32px; }
+      .badge-line { width:24px; }
+      .badge-text { font-size:10px; letter-spacing:.1em; white-space:nowrap; }
+      .hero-h1 { font-size:clamp(26px,7.2vw,30px); line-height:1.08; max-width:none; }
+      .hero-h1 span { white-space:nowrap; }
+      .hero-sub { font-size:17px; line-height:1.65; }
+      .btn-static { font-size:15px; padding-left:18px; padding-right:18px; white-space:nowrap; }
+      .cta-note { line-height:1.45; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <a href="#" class="nav-logo">PROFILE®</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#resultados">Resultados</a></li>
+    <li><a href="https://tally.so/r/yPzy46" data-lead-link>Diagnóstico</a></li>
+  </ul>
+  <a class="btn-nav" href="https://tally.so/r/yPzy46" data-lead-link>Diagnóstico gratuito</a>
+  <button class="hamburger" id="hamburger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ─── S1: HERO ─── -->
+<section class="hero">
+  <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0">
+    <defs>
+      <pattern id="dp" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+        <circle cx=".5" cy=".5" r=".85" fill="#AAA6A0" fill-opacity=".18"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#dp)"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="badge a1">
+      <span class="badge-line"></span>
+      <span class="badge-text">ARQ90 — Programa de 90 dias</span>
+      <span class="badge-line"></span>
+    </div>
+    <h1 class="hero-h1 a2">
+      <span>Seu tráfego e seu CRM</span>
+      <span>precisam conversar.</span>
+      <span>O ARQ90 conecta os dois.</span>
+    </h1>
+    <p class="hero-sub a3">Um programa de 90 dias para que cada campanha aprenda com seus melhores clientes e cada real investido gere resultado.</p>
+    <div class="a4">
+      <a class="btn-static" href="https://tally.so/r/yPzy46" data-lead-link>Quero meu diagnóstico gratuito</a>
+      <p class="cta-note">Em 30 min você sai com clareza sobre onde o seu funil vaza</p>
+    </div>
+  </div>
+  <div class="logos-strip a5">
+    <div class="logos-strip-inner">
+      <p class="logos-lbl">Empresas atendidas</p>
+      <div class="logos-carousel" aria-label="Empresas atendidas pela Profile Culture">
+        <div class="logos-track">
+          <span class="client-logo client-logo-compact"><img src="assets/dandrade.png" alt="D'Andrade" loading="lazy"></span>
+          <span class="client-logo client-logo-wide"><img src="assets/thorio-geradores.webp" alt="Thório Geradores" loading="lazy"></span>
+          <span class="client-logo client-logo-wide"><img src="assets/ofertaterreno.png" alt="Oferta Terreno" loading="lazy"></span>
+          <span class="client-logo"><img src="assets/ifope.png" alt="Ifope Educa" loading="lazy"></span>
+          <span class="client-logo client-logo-compact"><img src="assets/rift-distribuidora.webp" alt="Rift Distribuidora" loading="lazy"></span>
+          <span class="client-logo client-logo-compact" aria-hidden="true"><img src="assets/dandrade.png" alt="" loading="lazy"></span>
+          <span class="client-logo client-logo-wide" aria-hidden="true"><img src="assets/thorio-geradores.webp" alt="" loading="lazy"></span>
+          <span class="client-logo client-logo-wide" aria-hidden="true"><img src="assets/ofertaterreno.png" alt="" loading="lazy"></span>
+          <span class="client-logo" aria-hidden="true"><img src="assets/ifope.png" alt="" loading="lazy"></span>
+          <span class="client-logo client-logo-compact" aria-hidden="true"><img src="assets/rift-distribuidora.webp" alt="" loading="lazy"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── S4: O SISTEMA ─── -->
+<section class="s4">
+  <div class="s4-in">
+    <p class="section-tag section-tag-lt">O Sistema</p>
+    <h2 class="s4-h">A maioria tem tráfego e CRM. Poucos conectam os dois. Ninguém faz os quatro.</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <span class="card-num">01</span>
+        <h3 class="card-title">Visibilidade de performance do início ao fim</h3>
+        <p class="card-body">Você para de olhar para custo por lead e começa a enxergar custo por cliente, por anúncio, por público.</p>
+      </div>
+      <div class="card">
+        <span class="card-num">02</span>
+        <h3 class="card-title">Suas vendas chegam ao Meta e ao Google em tempo real</h3>
+        <p class="card-body">Quando alguém compra ou qualifica, essa informação chega automaticamente. O algoritmo aprende com quem comprou não com quem clicou.</p>
+      </div>
+      <div class="card">
+        <span class="card-num">03</span>
+        <h3 class="card-title">Campanhas para o perfil dos seus melhores clientes</h3>
+        <p class="card-body">Sua base de clientes vira combustível para encontrar novos compradores com o mesmo perfil. Você expande com inteligência, não com achismo.</p>
+      </div>
+      <div class="card">
+        <span class="card-num">04</span>
+        <h3 class="card-title">Você não paga para anunciar para quem já é seu cliente</h3>
+        <p class="card-body">Quem está em negociação ou já comprou é excluído das campanhas. Cada real vai para quem ainda não entrou no funil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── S5: AS 5 CAMADAS ─── -->
+<section class="s5" id="como-funciona">
+  <div class="s5-in">
+    <p class="section-tag">As 5 Camadas</p>
+    <h2 class="s5-h">Um sistema de 5 camadas que se retroalimenta.</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-num">01</span>
+        <div>
+          <h3 class="tl-title">Fundação Unificada</h3>
+          <p class="tl-body">Antes de qualquer campanha rodar, os sistemas precisam se falar. Rastreamento de origem ativo em cada lead. Informações de venda chegando ao Meta e ao Google em tempo real. Clientes ativos fora das campanhas de aquisição. Sem isso, você tem dois sistemas paralelos que não aprendem um com o outro e o desperdício fica invisível.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-num">02</span>
+        <div>
+          <h3 class="tl-title">Aquisição</h3>
+          <p class="tl-body">O objetivo das campanhas não é o clique, nem o volume de leads. É o lead que entra com perfil real de compra no seu sistema de vendas. Isso muda a estratégia, o criativo e o critério de otimização. Você não está comprando volume, está comprando a entrada certa no funil.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-num">03</span>
+        <div>
+          <h3 class="tl-title">Ativação, primeiros 7 dias</h3>
+          <p class="tl-body">Esse é o momento de maior intenção do lead. A maioria das empresas desperdiça essa janela. Boas-vindas em minutos, entrega do que foi prometido no anúncio, sequência de contatos com critério claro para qualificar ou converter.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-num">04</span>
+        <div>
+          <h3 class="tl-title">Nutrição e Conversão</h3>
+          <p class="tl-body">Para quem não converteu na ativação. O sistema segmenta por comportamento real: abriu mas não respondeu, quase comprou, comprou e pode comprar mais. Cada mensagem é calibrada para o momento certo. Não é disparo em massa, é resposta inteligente ao comportamento de cada pessoa.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-num">05</span>
+        <div>
+          <h3 class="tl-title">Expansão</h3>
+          <p class="tl-body">Aqui o ciclo se fecha. Quem quase comprou recebe um anúncio específico. Clientes inativos são reativados via anúncio e e-mail ao mesmo tempo. Novos públicos são encontrados com base no perfil de quem mais compra. Menos orçamento desperdiçado, mais receita pelos mesmos canais.</p>
+        </div>
+      </div>
+    </div>
+    <div class="s5-cta">
+      <a class="btn-static" href="https://tally.so/r/yPzy46" data-lead-link>Quero aplicar o ARQ90 no meu negócio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── S6: RESULTADOS ─── -->
+<section class="s6" id="resultados">
+  <div class="s6-in">
+    <p class="section-tag section-tag-lt">Resultados</p>
+    <h2 class="s6-h">Números reais.<br>Sistemas que funcionaram.</h2>
+    <div class="case-card case-zapay">
+      <span class="c-tag c-tag-ms">Lifecycle CRM — Fintech</span>
+      <span class="c-metric-lg">R$ 7MM</span>
+      <span class="c-ctx-lg">em um único trimestre, mais que o ano inteiro anterior</span>
+      <p class="c-body">Antes de fundar a Profile Culture, Daniel liderou o projeto de CRM na Zapay como Growth Product Manager. Dados descentralizados, comunicações genéricas, CRM sem impacto em vendas. O projeto centralizou a base e criou réguas por comportamento. Esse é o mesmo método aplicado no ARQ90.</p>
+      <span class="c-stats">R$6MM (2022 inteiro) → R$7MM (Q1 2023) · Clientes em réguas: 9.344 → 21.499 (+130%)</span>
+      <span class="c-origin">A origem do método.</span>
+    </div>
+    <div class="small-grid">
+      <div class="case-card">
+        <span class="c-tag">Tráfego + Pipeline</span>
+        <span class="c-metric-sm">11.871</span>
+        <span class="c-ctx-sm">oportunidades em 6 meses</span>
+        <span class="c-stats">4.235 via Google · 7.636 via WhatsApp · CPL R$3,76</span>
+        <span class="c-origin">D'Andrade</span>
+      </div>
+      <div class="case-card">
+        <span class="c-tag">Paid Media B2B</span>
+        <span class="c-metric-sm">353x</span>
+        <span class="c-ctx-sm">retorno sobre investimento</span>
+        <span class="c-stats">R$6.855 → R$2.421.423 · 2.478 vendas · 123.800% crescimento</span>
+        <span class="c-origin">Rift Distribuidora</span>
+      </div>
+      <div class="case-card">
+        <span class="c-tag">B2B Alto Valor</span>
+        <span class="c-metric-sm">+114%</span>
+        <span class="c-ctx-sm">taxa de conversão</span>
+        <span class="c-stats">922 clientes qualificados · 17,5% conversão · tempo de venda reduzido à metade</span>
+        <span class="c-origin">Thório Geradores</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── S7: PRA QUEM É ─── -->
+<section class="s7">
+  <div class="s7-in">
+    <p class="section-tag">Pra quem é</p>
+    <div class="qualifier">
+      <p>O ARQ90 foi desenhado para empresas que já investem acima de R$ 5.000/mês em tráfego e querem transformar esse investimento em receita previsível.</p>
+    </div>
+    <div class="icp-grid">
+      <div class="icp-card">
+        <span class="icp-num">01 —</span>
+        <h3 class="icp-title">Você investe em anúncios mas não sabe o que gera cliente</h3>
+        <p class="icp-body">Volume de lead não falta. Mas quando chega no seu time de vendas, a maioria não fecha e você não tem visibilidade de por quê. O problema não é o anúncio. É o que acontece depois do clique.</p>
+      </div>
+      <div class="icp-card">
+        <span class="icp-num">02 —</span>
+        <h3 class="icp-title">Você tem CRM mas não o conectou às campanhas</h3>
+        <p class="icp-body">As mensagens saem, os fluxos rodam. Mas as campanhas não sabem o que acontece depois do formulário, então continuam otimizando para o lead mais barato, não para o cliente certo.</p>
+      </div>
+      <div class="icp-card">
+        <span class="icp-num">03 —</span>
+        <h3 class="icp-title">Você quer parar de pagar duas vezes pela mesma pessoa</h3>
+        <p class="icp-body">Sem inteligência de exclusão, você anuncia para quem já está sendo abordado pelo seu time. Com o ARQ90, cada real vai para quem ainda não entrou no funil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── S8: CTA PRINCIPAL ─── -->
+<section class="s8">
+  <div class="s8-in">
+    <span class="s8-label">ARQ90 — Diagnóstico Gratuito</span>
+    <h2 class="s8-h">Em 90 dias, seu tráfego e seu CRM operam como um sistema único.</h2>
+    <p class="s8-sub">Sem compromisso. Em 30 minutos você sai com clareza sobre onde o seu funil vaza.</p>
+    <a class="btn-s8" href="https://tally.so/r/yPzy46" data-lead-link>Agendar diagnóstico gratuito</a>
+  </div>
+</section>
+
+<!-- ─── S9: FAQ ─── -->
+<section class="s9">
+  <div class="s9-in">
+    <p class="section-tag">Perguntas Frequentes</p>
+    <h2 class="s9-h">Tire suas dúvidas.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-1"><span class="faq-q-text">O que é o ARQ90?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-1"><p class="faq-a-inner">É um programa de 90 dias que integra campanhas de tráfego e CRM em 5 camadas, para que cada anúncio alimente seu sistema de vendas com os leads certos e seu histórico de clientes torne as campanhas cada vez mais inteligentes. Ao final, você tem um sistema rodando com visibilidade de ponta a ponta.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2"><span class="faq-q-text">Qual a diferença para uma agência de tráfego?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-2"><p class="faq-a-inner">Uma agência entrega leads. O ARQ90 entrega um sistema onde o critério de sucesso das campanhas é o cliente que efetivamente compra, não o CPL. Você para de otimizar para quantidade e começa a otimizar para receita.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-3"><span class="faq-q-text">E para uma ferramenta de automação como RD Station ou HubSpot?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-3"><p class="faq-a-inner">Essas ferramentas fazem parte do processo, mas não são o sistema. O ARQ90 define como elas se conectam às campanhas, como as informações de venda chegam ao Meta e ao Google em tempo real e como sua base de clientes vira combustível para encontrar novos compradores. A ferramenta sozinha não faz isso.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4"><span class="faq-q-text">Preciso já ter CRM para começar?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-4"><p class="faq-a-inner">Não necessariamente. O diagnóstico mapeia o que você já tem e o que precisa ser implementado. Em alguns casos o sistema de relacionamento é estruturado como parte da fundação. O que importa é construir a base correta antes de qualquer campanha escalar.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5"><span class="faq-q-text">Quanto tempo para ver resultado?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-5"><p class="faq-a-inner">Em até 30 dias a fundação está estruturada e os primeiros dados de qualidade aparecem. Em 90 dias o ciclo completo está validado, com visibilidade de campanha a cliente, ativação configurada e campanhas aprendendo com seus melhores compradores.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-6"><span class="faq-q-text">O ARQ90 funciona para B2B e B2C?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-6"><p class="faq-a-inner">Sim. A lógica de integração é a mesma. O que muda é o critério de qualificação do lead, o ciclo de relacionamento e o tipo de público gerado a partir da base. O diagnóstico define a configuração para cada modelo de negócio.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-7"><span class="faq-q-text">O que recebo ao final dos 90 dias?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-7"><p class="faq-a-inner">Funil de aquisição operando com visibilidade de origem. Sistema de relacionamento integrado às campanhas com exclusões ativas e públicos sincronizados. Automações de ativação e nutrição configuradas. Dashboard com clareza de retorno por canal, campanha e criativo.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-8"><span class="faq-q-text">O que acontece depois dos 90 dias?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-8"><p class="faq-a-inner">Você pode continuar com acompanhamento mensal ou internalizar o sistema já estruturado. O ARQ90 é desenhado para operar de forma autônoma e pode ser escalado com novos canais, segmentos e automações conforme o negócio cresce.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-9"><span class="faq-q-text">Quem conduz o ARQ90?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-9"><p class="faq-a-inner">O programa é conduzido por Daniel Rivelino, especialista em arquitetura de receita com mais de 5 anos de experiência em growth para empresas B2B e B2C. Antes de fundar a Profile Culture, liderou o projeto de CRM na Zapay, onde o mesmo método gerou mais receita em um trimestre do que no ano inteiro anterior.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── S10: FOOTER ─── -->
+<footer class="ft">
+  <div class="ft-in">
+    <div class="ft-top">
+      <div>
+        <a href="#" class="ft-logo">PROFILE®</a>
+        <p class="ft-tagline">Arquitetura de receita para empresas que já investem.</p>
+      </div>
+      <div>
+        <span class="ft-col-label">Programa</span>
+        <nav class="ft-links">
+          <a href="#como-funciona">ARQ90</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#resultados">Resultados</a>
+        </nav>
+      </div>
+      <div>
+        <span class="ft-col-label">Contato</span>
+        <a href="https://tally.so/r/yPzy46" class="ft-contact-link" data-lead-link>Diagnóstico gratuito →</a>
+        <a href="https://www.linkedin.com/in/daniel-rivelino/" class="ft-linkedin" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" stroke="#AAA6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="2" y="9" width="4" height="12" stroke="#AAA6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="4" cy="4" r="2" stroke="#AAA6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <hr class="ft-divider">
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2026 Profile Culture. Todos os direitos reservados.</span>
+      <span class="ft-tagline-b">Growth is architecture.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const LEAD_FORM_URL = 'https://tally.so/r/yPzy46';
+document.querySelectorAll('[data-lead-link]').forEach(link => {
+  link.href = LEAD_FORM_URL;
+});
+
+// ─── HAMBURGER ───
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', open);
+});
+// Close on link click
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => { navLinks.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); });
+});
+
+// ─── FAQ ACCORDION ───
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item   = q.closest('.faq-item');
+    const icon   = q.querySelector('.faq-icon');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      i.querySelector('.faq-icon').textContent = '+';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      q.setAttribute('aria-expanded', 'true');
+      icon.textContent = '−';
+    }
+  });
+});
+</script>
+</body>
+</html>
