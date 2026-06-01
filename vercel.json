@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/arq90",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/arq90/assets/:path*",
