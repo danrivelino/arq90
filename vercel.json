@@ -1,44 +1,9 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "redirects": [
     {
       "source": "/",
       "destination": "/arq90",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/arq90/assets/:path*",
-      "destination": "/assets/:path*"
-    },
-    {
-      "source": "/arq90",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/arq90/",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/diagnostico-arq90",
-      "destination": "/diagnostico-arq90.html"
-    },
-    {
-      "source": "/diagnostico-arq90/",
-      "destination": "/diagnostico-arq90.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/assets/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "permanent": false
     }
   ]
 }
