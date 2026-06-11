@@ -15,11 +15,11 @@
     },
     {
       "source": "/arq90",
-      "destination": "/index.html"
+      "destination": "/arq90.html"
     },
     {
       "source": "/arq90/",
-      "destination": "/index.html"
+      "destination": "/arq90.html"
     },
     {
       "source": "/diagnostico-arq90",
