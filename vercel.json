@@ -1,4 +1,6 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     {
       "source": "/",
@@ -18,6 +20,14 @@
     {
       "source": "/arq90/",
       "destination": "/index.html"
+    },
+    {
+      "source": "/diagnostico-arq90",
+      "destination": "/diagnostico-arq90.html"
+    },
+    {
+      "source": "/diagnostico-arq90/",
+      "destination": "/diagnostico-arq90.html"
     }
   ],
   "headers": [
