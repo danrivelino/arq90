@@ -5,7 +5,7 @@
     {
       "source": "/",
       "destination": "/arq90",
-      "permanent": true
+      "permanent": false
     }
   ],
   "rewrites": [
